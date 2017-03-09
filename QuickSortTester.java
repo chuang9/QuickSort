@@ -18,10 +18,13 @@ public class QuickSortTester {
     }
 
     public static void main(String[] args) {
+        timer(10, 10); // run JVM once
 	System.out.println("n = 100: " + timer(100, 10));
 	System.out.println("n = 1000: " + timer(1000, 10));
 	System.out.println("n = 10000: " + timer(10000, 10));
 	System.out.println("n = 100000: " + timer(100000, 10));
+        System.out.println("n = 1000000: " + timer(1000000, 10));
+        System.out.println("n = 10000000: " + timer(10000000, 10));
     }
 
 } 

@@ -1,8 +1,3 @@
-// Chester Huang
-// APCS2 pd5
-// HW15 -- So So Quick
-// 2017-03-09
-
 /*****************************************************
  * class QuickSort
  *
@@ -10,24 +5,24 @@
  *
  * 1. Summary of QuickSort algorithm:
  * QSort(arr): Apply the partition method, starting with (0, array.length - 1)
-               as the left and right bounds, respectively.
-               Keep track of the pivot point as returned by the partition method.
-               Recursively apply the partition method on the two created partitions,
-               using the new bounds (left, pivot - 1) and (pivot + 1, right).
-               All partitions will be sorted, the exit case being !(left < right).
- 
-               * 2a. Worst pivot choice / array state and associated runtime:
-       A pivot point such that the value at that point is either the max or min value.
-       Runtime O(n^2): n partitions needed, with n comparisons/swaps in each.
-
-       * 2b. Best pivot choice / array state and associated runtime:
-       A pivot point such that the value at that point is the median value.
-       Runtime O(nlogn): log n partitions needed, with n comparisons/swaps in each.
-
-       * 3. Approach to handling duplicate values in array:
-       The partition method puts values to the the left of the pivot only if they are
-       strictly less than the pivotVal. Duplicate values will be partitioned to the right.
-*****************************************************/
+ *             as the left and right bounds, respectively.
+ *             Keep track of the pivot point as returned by the partition method.
+ *             Recursively apply the partition method on the two created partitions,
+ *             using the new bounds (left, pivot - 1) and (pivot + 1, right).
+ *             All partitions will be sorted, the exit case being !(left < right).
+ * 
+ * 2a.  Worst pivot choice / array state and associated runtime:
+ *      A pivot point such that the value at that point is either the max or min value.
+ *      Runtime O(n^2): n partitions needed, with n comparisons/swaps in each.
+ *
+ * 2b.  Best pivot choice / array state and associated runtime:
+ *      A pivot point such that the value at that point is the median value.
+ *      Runtime O(nlogn): log n partitions needed, with n comparisons/swaps in each.
+ *
+ * 3.   Approach to handling duplicate values in array:
+ *      The partition method puts values to the the left of the pivot only if they are
+ *      strictly less than the pivotVal. Duplicate values will be partitioned to the right.
+ *****************************************************/
 
 /***
     PROTIP: Assume no duplicates during initial development phase.
