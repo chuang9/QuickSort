@@ -16,7 +16,7 @@ public class QuickSortTester {
 	return newArr;
     }
     
-    public static long timer(int lengthArr, int numRuns) {
+    public static long timerA(int lengthArr, int numRuns) {
 	long totalTime = 0;
 
 	for (int i = 0; i < numRuns; i++) {
@@ -33,14 +33,14 @@ public class QuickSortTester {
 	return totalTime / numRuns;
     }
 
-      public static long bestTimer(int lengthArr, int numRuns) {
+    public static long timerB(int lengthArr, int numRuns) {
 	long totalTime = 0;
 
 	for (int i = 0; i < numRuns; i++) {
 	    int[] arr = orderedArr(lengthArr);
 
 	    long startTime = System.nanoTime();
-	    QuickSort.qsort(arr);
+	    QuickSort.qsort2(arr); // qsort2 has middle index as pivot
 	    long endTime = System.nanoTime();
 
 	    totalTime += endTime - startTime;   
@@ -50,7 +50,7 @@ public class QuickSortTester {
 	return totalTime / numRuns;
     }
 
-      public static long worstTimer(int lengthArr, int numRuns) {
+    public static long timerW(int lengthArr, int numRuns) {
 	long totalTime = 0;
 
 	for (int i = 0; i < numRuns; i++) {
@@ -69,31 +69,37 @@ public class QuickSortTester {
 
 
     public static void main(String[] args) {
-        timer(10, 10); // run JVM once
-	
-	System.out.println("Average Case");
-	System.out.println("n = 100: " + timer(100, 10));
-	System.out.println("n = 1000: " + timer(1000, 10));
-	System.out.println("n = 10000: " + timer(10000, 10));
-	System.out.println("n = 100000: " + timer(100000, 10));
-	System.out.println("n = 1000000: " + timer(1000000, 10));
-	System.out.println("n = 10000000: " + timer(10000000, 10));
-	
+        
+        timerA(10, 10); // run JVM once
+        System.out.println("Average Case");
+	System.out.println("n = 100: " + timerA(100, 10));
+	System.out.println("n = 1000: " + timerA(1000, 10));
+	System.out.println("n = 10000: " + timerA(10000, 10));
+	System.out.println("n = 100000: " + timerA(100000, 10));
+	System.out.println("n = 1000000: " + timerA(1000000, 10));
+	System.out.println("n = 10000000: " + timerA(10000000, 10));
+        
+
+        
+        timerB(10, 10); // run JVM once
 	System.out.println("Best Case");
-	System.out.println("n = 100: " + bestTimer(100, 10));
-	System.out.println("n = 1000: " + bestTimer(1000, 10));
-	System.out.println("n = 10000: " + bestTimer(10000, 10));
-	System.out.println("n = 100000: " + bestTimer(100000, 10));
-	System.out.println("n = 1000000: " + bestTimer(1000000, 10));
-	System.out.println("n = 10000000: " + bestTimer(10000000, 10));
-	
+	System.out.println("n = 100: " + timerB(100, 10));
+	System.out.println("n = 1000: " + timerB(1000, 10));
+	System.out.println("n = 10000: " + timerB(10000, 10));
+	System.out.println("n = 100000: " + timerB(100000, 10));
+	System.out.println("n = 1000000: " + timerB(1000000, 10));
+	System.out.println("n = 10000000: " + timerB(10000000, 10));
+        
+      
+        timerW(10, 10); // run JVM once
 	System.out.println("Worst Case");
-	System.out.println("n = 100: " + worstTimer(100, 10));
-	System.out.println("n = 1000: " + worstTimer(1000, 10));
-	System.out.println("n = 10000: " + worstTimer(10000, 10));
-	System.out.println("n = 100000: " + worstTimer(100000, 10));
-	System.out.println("n = 1000000: " + worstTimer(1000000, 10));
-	System.out.println("n = 10000000: " + worstTimer(10000000, 10));
+	System.out.println("n = 100: " + timerW(100, 10));
+	System.out.println("n = 1000: " + timerW(1000, 10));
+	System.out.println("n = 10000: " + timerW(10000, 10));
+	System.out.println("n = 100000: " + timerW(100000, 10));
+	System.out.println("n = 1000000: " + timerW(1000000, 10));
+	System.out.println("n = 10000000: " + timerW(10000000, 10));
+        
     }
 
 } 

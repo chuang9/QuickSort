@@ -97,6 +97,38 @@ public class QuickSort {
     }
 
 
+
+    // identical to qsort but uses middle index as pivot
+    
+
+    public static void qsort2( int[] d ) {
+        qsortHelper2(0, d.length - 1, d);
+    }
+
+    public static void qsortHelper2(int left, int right, int[] d) {
+        if (left < right) {
+            int pivot = partition(left, right, d);
+            qsortHelper2(left, pivot - 1, d);
+            qsortHelper2(pivot + 1, right, d);
+        }
+    }
+
+    public static int partition2(int left, int right, int[] arr) {
+        int pivotVal = arr[(left + right) / 2];   
+        int indexCount = left;
+        for (int i = left; i < right; i++) {
+            if (arr[i] < pivotVal) {
+                swap(i, indexCount, arr);
+                indexCount += 1;
+            }
+        }
+        swap(right, indexCount, arr);
+        return indexCount;
+    }
+
+
+    
+
     //main method for testing
     public static void main( String[] args ) {
         
