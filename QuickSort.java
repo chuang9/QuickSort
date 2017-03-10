@@ -107,14 +107,16 @@ public class QuickSort {
 
     public static void qsortHelper2(int left, int right, int[] d) {
         if (left < right) {
-            int pivot = partition(left, right, d);
+            int pivot = partition2(left, right, d);
             qsortHelper2(left, pivot - 1, d);
             qsortHelper2(pivot + 1, right, d);
         }
     }
 
     public static int partition2(int left, int right, int[] arr) {
-        int pivotVal = arr[(left + right) / 2];   
+        int pivot = (left + right) / 2;
+        int pivotVal = arr[pivot];
+        swap(pivot, right, arr);
         int indexCount = left;
         for (int i = left; i < right; i++) {
             if (arr[i] < pivotVal) {

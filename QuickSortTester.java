@@ -1,3 +1,14 @@
+/*
+QuickSortTester contains the methods timerW, timerA, and timerB, representing the tests for worst, average, and best case.
+
+The methods have two inputs: array size and number of trials to run. In each trial, for input number of trials, a new array of input size is constructed. The quicksort algorithm is then ran and timed. The average time for all the trials is returned.
+
+The three methods only differ in the way the algorithms are constructed and the pivot position:
+timerW: array is sorted in reverse, pivot choice is the right bound
+timerA: array is randomized, pivot choice is the right bound
+timerB: array is sorted, pivot choice is the middle index
+*/
+
 public class QuickSortTester {
 
     public static int[] orderedArr(int len){
@@ -77,8 +88,10 @@ public class QuickSortTester {
 	System.out.println("n = 10000: " + timerA(10000, 10));
 	System.out.println("n = 100000: " + timerA(100000, 10));
 	System.out.println("n = 1000000: " + timerA(1000000, 10));
+        System.out.println("n = 2500000: " + timerA(2500000, 10));
+        System.out.println("n = 5000000: " + timerA(5000000, 10));
+        System.out.println("n = 7500000: " + timerA(7500000, 10));
 	System.out.println("n = 10000000: " + timerA(10000000, 10));
-        
 
         
         timerB(10, 10); // run JVM once
@@ -88,17 +101,18 @@ public class QuickSortTester {
 	System.out.println("n = 10000: " + timerB(10000, 10));
 	System.out.println("n = 100000: " + timerB(100000, 10));
 	System.out.println("n = 1000000: " + timerB(1000000, 10));
+        System.out.println("n = 2500000: " + timerB(2500000, 10));
+        System.out.println("n = 5000000: " + timerB(5000000, 10));
+        System.out.println("n = 7500000: " + timerB(7500000, 10));
 	System.out.println("n = 10000000: " + timerB(10000000, 10));
         
-      
+        
         timerW(10, 10); // run JVM once
 	System.out.println("Worst Case");
 	System.out.println("n = 100: " + timerW(100, 10));
 	System.out.println("n = 1000: " + timerW(1000, 10));
-	System.out.println("n = 10000: " + timerW(10000, 10));
-	System.out.println("n = 100000: " + timerW(100000, 10));
-	System.out.println("n = 1000000: " + timerW(1000000, 10));
-	System.out.println("n = 10000000: " + timerW(10000000, 10));
+	System.out.println("n = 10000: " + timerW(10000, 10));;
+        // larger n causes stack overflow error
         
     }
 
